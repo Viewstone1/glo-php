@@ -1,5 +1,13 @@
 <?php
 include "includes/functions.php ";
+
+
+
+$users_count = db_query("SELECT COUNT(id) FROM `users`;")->fetchColumn();
+$views_count = db_query("SELECT SUM(`views`) FROM `links`;")->fetchColumn();
+$links_count = db_query("SELECT COUNT(user_id) FROM `links`")->fetchColumn();
+
+// http://localhost/goo
 ?>
 
 <!doctype html>
@@ -38,4 +46,3 @@ include "includes/functions.php ";
       </div>
     </nav>
   </header>
-  <?php echo get_url(); ?>
